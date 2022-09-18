@@ -3,7 +3,7 @@ import VectorLogo from "../Images/Vector.svg"
 import google from "../Images/google-logo-transparent-alphabet-4.png"
 import "./Login.css"
 import { useDispatch,useSelector } from "react-redux"
-import { getUser } from '../../Redux/loginSlice'
+import { getUser } from '../../Redux/Slice/loginSlice'
 import { Link } from 'react-router-dom'
 import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'

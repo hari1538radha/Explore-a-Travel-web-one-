@@ -1,7 +1,4 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
-
 
 export const getUser = createAsyncThunk('User', async (data) => {
 

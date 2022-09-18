@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 // import axios from "axios";
 
-export const signup = createAsyncThunk("user", async(data) => {
+export const signup = createAsyncThunk("user", async (data) => {
     const signupdata = fetch("http://localhost:5000/authenticate/signup", {
         method: "post",
         headers: { "Content-Type": "application/json" },
@@ -13,7 +13,6 @@ export const signup = createAsyncThunk("user", async(data) => {
             "userPhoneNumber": data.userPhoneNumber
         })
     }).then((res) => {
-
         return res.json();
     })
     return signupdata;
@@ -25,7 +24,7 @@ const SignupReducer = createSlice({
         loading: false,
     },
     reducer: {},
-     extraReducers: {
+    extraReducers: {
         [signup.pending]: (state, action) => {
             state.loading = true;
         },

@@ -1,14 +1,20 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
-export const Displaydata = createAsyncThunk("displayData", async () => {
-    const data = fetch("").then((res) => {
-        return res.json();
-    })
+export const Displaydata = createAsyncThunk("displayData", async (page) => {
 
-    return Displaydata;
+    const response = fetch(`http://localhost:5000/authenticate/home?page=${page}&limit=5`).then((res) => {
+
+        return res.json();
+
+
+    })
+    console.log(response);
+    return response;
+   
+
 });
 
-const DisplayDatareducer = createSlice(
+ export const DisplayDatareducer = createSlice(
     {
         name: "displayData",
         initialState:
@@ -18,12 +24,13 @@ const DisplayDatareducer = createSlice(
         },
 
         reducers: {},
-        extradReducers: {
+        extraReducers: {
             [Displaydata.pending]: (state, action) => {
                 state.loading = true;
             },
-            [Displaydata.fullfilled]: (state, action) => {
-                state.Display = action.payload;
+            [Displaydata.fulfilled]: (state, action) => {
+              
+                state.Display = action.payload.data;
                 state.loading = false;
             },
             [Displaydata.rejected]: (state, action) => {
@@ -34,5 +41,5 @@ const DisplayDatareducer = createSlice(
     },
 );
 
-const Display =DisplayDatareducer.reducer
+const Display = DisplayDatareducer.reducer;
 export default Display;

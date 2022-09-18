@@ -3,7 +3,7 @@ import { useEffect } from 'react'
 import VectorLogo from "../Images/Vector.svg"
 import google from "../Images/google-logo-transparent-alphabet-4.png"
 import "../signup/signup.css"
-import { signup } from '../../Redux/signupSlice'
+import { signup } from '../../Redux/Slice/signupSlice'
 import { useDispatch,useSelector } from 'react-redux'
 import { Link, useNavigate } from 'react-router-dom'
 const Signup = () => {
